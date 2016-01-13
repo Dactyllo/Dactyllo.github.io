@@ -8,11 +8,9 @@
 		<meta name="description" content="Site pessoal de João Gaião, um programador que acredita que a Web é mais do que um simples site.">
 		<meta name="keywords" content="web, web portugal, web algarve, João Gaião, web developer, web developer portugal, web developer algarve, html, html portugal, html algarve, javascript, javascript portugal, javascript algarve, mobile, mobile algarve, mobile portugal, html5, html5 algarve, html5 portugal">
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600">
-		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
 		<script type="text/javascript">
 		    var _gaq = _gaq || [];
 		    _gaq.push(['_setAccount', 'UA-31457866-2']);
@@ -25,7 +23,7 @@
 				<div class="top">
 					<!-- Logo -->
 						<div id="logo">
-							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+							<span class="image avatar48"></span>
 							<h1 id="title">João Gaião</h1>
 							<p>Web Developer</p>
 						</div>
@@ -73,7 +71,7 @@
 							<div class="row">
 								<div class="4u 12u$(mobile)">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" /></a>
+										<a id="matriz" href="#" class="image fit"></a>
 										<header>
 											<h3>Cartão Matriz</h3>
 											<p>Uma aplicação para armazenar e consultar credenciais de acesso a bancos online.</p>
@@ -89,7 +87,7 @@
 							<header>
 								<h2>Sobre mim</h2>
 							</header>
-							<a href="#" class="image featured"><img src="images/pico.jpg" alt="" /></a>
+							<a id="pico" class="image featured"></a>
 							<p>Todos nós temos uma fonte de inspiração, uma 'musa', algo que nos move inconscientemente. A minha é a terra onde nasci, os Açores, em especial as ilhas Faial e Pico. Acredito que tudo o que faço ou penso é influênciado em parte por essa força da natureza. Influência essa que é de uma extrema genuinidade e simplicidade, do mais puro e mágico que a natureza tem para ofereçer.</p>
 							<p>Desde pequeno que demonstrei um gosto genuíno pela informática. Na fase da adolescência, em que questionava a minha vocação, considerava a programação um 'monstro' que estaria fora do meu alcançe. Poucos anos mais tarde, num curso de informática, aprendi as bases da programação. Desde então a paixão pela programação tem crescido exponêncialmente. A dada altura conheci o Javascript e a Web tornou-se o meu foco principal, foi amor à primeira indentação.</p>
 						</div>
@@ -117,23 +115,57 @@
 					</section-->
 			</div>
 		<!-- Footer -->
-			<div id="footer">
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; João Gaião. Todos os direitos reservados.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
+			<div id="loader-wrapper">
+			    <div id="loader"></div>
+			    <div class="loader-section section-left"></div>
+			    <div class="loader-section section-right"></div>
 			</div>
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
+			<!--script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollzer.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
+			<script src="assets/js/util.js"></script-->
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+			<!--script src="assets/js/main.js"></script-->
+			<script>
+			requirejs.config({
+				baseUrl: 'assets/js',
+				paths: {
+					jquery: 'jquery.min',
+					jqueryScrolly: 'jquery.scrolly.min',
+					jqueryScrollzer: 'jquery.scrollzer.min',
+					skel: 'skel.min',
+					util: 'util',
+					main: 'main'
+				}
+			});
+			function loadCss(url) {
+			    var link = document.createElement("link");
+			    link.type = "text/css";
+			    link.rel = "stylesheet";
+			    link.href = url;
+			    document.getElementsByTagName("head")[0].appendChild(link);
+			}
+			loadCss("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+			loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+			loadCss("assets/css/main.css");
+			requirejs(['jquery'], function( $ ) {
+				$("#logo .avatar48").html('<img src="images/avatar.jpg" alt="" />');
+				$("#matriz").html('<img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" />');
+				$("#pico").html('<img src="images/pico.jpg" alt="" />');
+				requirejs(['jqueryScrolly'], function() {});
+				requirejs(['jqueryScrollzer'], function() {});
+				requirejs(['skel'], function() {
+					requirejs(['util'], function() {});
+					requirejs(['main'], function() {});
+				});
+			});
+			</script>
 			<script type="text/javascript">  (function() {
-		    var ga = document.createElement('script');     ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:'   == document.location.protocol ? 'https://ssl'   : 'http://www') + '.google-analytics.com/ga.js';
+		    var ga = document.createElement('script');
+			ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		    })();
 		   </script>
