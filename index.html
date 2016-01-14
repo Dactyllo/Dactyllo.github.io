@@ -127,8 +127,8 @@
 			<script src="assets/js/util.js"></script-->
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<!--script src="assets/js/main.js"></script-->
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
-			<script>
+			<script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
+			<script async="async">
 			requirejs.config({
 				baseUrl: 'assets/js',
 				paths: {
@@ -140,7 +140,7 @@
 					main: 'main'
 				}
 			});
-			var loadCss = function() {
+			/*var loadCss = function() {
         var a = document.createElement('link'); a.rel = 'stylesheet';
 				var b = document.createElement('link'); b.rel = 'stylesheet';
 				var c = document.createElement('link'); c.rel = 'stylesheet';
@@ -154,30 +154,27 @@
       };
       var raf = requestAnimationFrame || mozRequestAnimationFrame ||
           webkitRequestAnimationFrame || msRequestAnimationFrame;
-      /*if (raf) raf(loadCss);
+      if (raf) raf(loadCss);
       else window.addEventListener('load', loadCss);*/
-			/*function loadCss(url) {
+			function loadCss(url) {
 			    var link = document.createElement("link");
 			    link.type = "text/css";
 			    link.rel = "stylesheet";
 			    link.href = url;
 			    document.getElementsByTagName("head")[0].appendChild(link);
 			}
-			loadCss("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-			loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
-			loadCss("assets/css/main.css");*/
-			requirejs(['jquery'], function( $ ) {
-				$(function() {
-					loadCss();
-					$("#logo .avatar48").html('<img src="images/avatar.jpg" alt="" />');
-					$("#matriz").html('<img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" />');
-					$("#pico").html('<img src="images/pico.jpg" alt="" />');
-				});
-				requirejs(['jqueryScrolly'], function() {});
-				requirejs(['jqueryScrollzer'], function() {});
+			requirejs(['jquery'], function($) {
+				loadCss("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+				loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+				loadCss("assets/css/main.css");
+				$("#logo .avatar48").html('<img src="images/avatar.jpg" alt="" />');
+				$("#matriz").html('<img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" />');
+				$("#pico").html('<img src="images/pico.jpg" alt="" />');
+				requirejs(['jqueryScrolly']);
+				requirejs(['jqueryScrollzer']);
 				requirejs(['skel'], function() {
-					requirejs(['util'], function() {});
-					requirejs(['main'], function() {});
+					requirejs(['util']);
+					requirejs(['main']);
 				});
 			});
 			</script>
