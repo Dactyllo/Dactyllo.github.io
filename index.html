@@ -156,7 +156,6 @@
           webkitRequestAnimationFrame || msRequestAnimationFrame;
       /*if (raf) raf(loadCss);
       else window.addEventListener('load', loadCss);*/
-			window.addEventListener('load', loadCss);
 			/*function loadCss(url) {
 			    var link = document.createElement("link");
 			    link.type = "text/css";
@@ -168,9 +167,12 @@
 			loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 			loadCss("assets/css/main.css");*/
 			requirejs(['jquery'], function( $ ) {
-				$("#logo .avatar48").html('<img src="images/avatar.jpg" alt="" />');
-				$("#matriz").html('<img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" />');
-				$("#pico").html('<img src="images/pico.jpg" alt="" />');
+				$(function() {
+					loadCss();
+					$("#logo .avatar48").html('<img src="images/avatar.jpg" alt="" />');
+					$("#matriz").html('<img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" />');
+					$("#pico").html('<img src="images/pico.jpg" alt="" />');
+				});
 				requirejs(['jqueryScrolly'], function() {});
 				requirejs(['jqueryScrollzer'], function() {});
 				requirejs(['skel'], function() {
