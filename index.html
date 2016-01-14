@@ -163,18 +163,20 @@
 			    link.href = url;
 			    document.getElementsByTagName("head")[0].appendChild(link);
 			}
-			requirejs(['jquery'], function($) {
-				loadCss("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-				loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
-				loadCss("assets/css/main.css");
-				requirejs(['jqueryScrolly']);
-				requirejs(['jqueryScrollzer']);
-				requirejs(['skel'], function() {
-					requirejs(['util']);
-					requirejs(['main']);
-					$("#logo .avatar48").html('<img src="images/avatar.jpg" alt="" />');
-					$("#matriz").html('<img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" />');
-					$("#pico").html('<img src="images/pico.jpg" alt="" />');
+			window.addEventListener('load', function() {
+				requirejs(['jquery'], function($) {
+					loadCss("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+					loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+					loadCss("assets/css/main.css");
+					requirejs(['jqueryScrolly']);
+					requirejs(['jqueryScrollzer']);
+					requirejs(['skel'], function() {
+						requirejs(['util']);
+						requirejs(['main']);
+						$("#logo .avatar48").html('<img src="images/avatar.jpg" alt="" />');
+						$("#matriz").html('<img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" />');
+						$("#pico").html('<img src="images/pico.jpg" alt="" />');
+					});
 				});
 			});
 			</script>
