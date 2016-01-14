@@ -127,7 +127,7 @@
 			<script src="assets/js/util.js"></script-->
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<!--script src="assets/js/main.js"></script-->
-			<script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
 			<script async="async">
 			requirejs.config({
 				baseUrl: 'assets/js',
@@ -167,14 +167,14 @@
 				loadCss("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 				loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 				loadCss("assets/css/main.css");
-				$("#logo .avatar48").html('<img src="images/avatar.jpg" alt="" />');
-				$("#matriz").html('<img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" />');
-				$("#pico").html('<img src="images/pico.jpg" alt="" />');
 				requirejs(['jqueryScrolly']);
 				requirejs(['jqueryScrollzer']);
 				requirejs(['skel'], function() {
 					requirejs(['util']);
 					requirejs(['main']);
+					$("#logo .avatar48").html('<img src="images/avatar.jpg" alt="" />');
+					$("#matriz").html('<img src="images/cartaomatriz.png" alt="Cartão Matriz" title="Cartão Matriz" />');
+					$("#pico").html('<img src="images/pico.jpg" alt="" />');
 				});
 			});
 			</script>
