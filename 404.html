@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>João Gaião - Página não encontrada</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="description" content="Página não encontrada do site João Gaião.">
+		<meta name="keywords" content="João Gaião, erro 404, 404, 404 html5">
+		<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-31457866-2']);
+		_gaq.push(['_trackPageview']);
+		</script>
+	</head>
+	<body>
+		<link rel="stylesheet" type="text/css" href="assets/css/404.css" async="async">
+		<h1>404</h1>
+		<h4>Página não encontrada</h4>
+		<div class="frame">
+		    <div></div>
+		    <div></div>
+		    <div></div>
+		</div>
+		<div class="caps"><img src="http://ademilter.com/caps.png" alt=""></div>
+		<canvas id="canvas"></canvas>
+		<script async="async">
+		(function(){
+			var Application = ( function () {
+		        var canvas;
+		        var ctx;
+		        var imgData;
+		        var pix;
+		        var WIDTH;
+		        var HEIGHT;
+		        var flickerInterval;
+		        var init = function () {
+		            canvas = document.getElementById('canvas');
+		            ctx = canvas.getContext('2d');
+		            canvas.width = WIDTH = 700;
+		            canvas.height = HEIGHT = 500;
+		            ctx.fillStyle = 'white';
+		            ctx.fillRect(0, 0, WIDTH, HEIGHT);
+		            ctx.fill();
+		            imgData = ctx.getImageData(0, 0, WIDTH, HEIGHT);
+		            pix = imgData.data;
+		            flickerInterval = setInterval(flickering, 30);
+		        };
+		        var flickering = function () {
+		            for (var i = 0; i < pix.length; i += 4) {
+		                var color = (Math.random() * 255) + 50;
+		                pix[i] = color;
+		                pix[i + 1] = color;
+		                pix[i + 2] = color;
+		            }
+		            ctx.putImageData(imgData, 0, 0);
+		        };
+		        return {
+		            init: init
+		        };
+		    }());
+
+		    Application.init();
+
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		</script>
+	</body>
+</html>
