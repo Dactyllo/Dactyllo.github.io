@@ -162,7 +162,7 @@
 				var self = $(this);
 				var nome = self.find("input[name='name']");
 				var email = self.find("input[name='email']");
-				var msg = self.find("input[name='message']");
+				var msg = self.find("textarea[name='message']");
 
 				$.ajax({
 					url: 'http://api-dactyllo.rhcloud.com/contact',
