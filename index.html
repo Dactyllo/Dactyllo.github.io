@@ -164,22 +164,26 @@
 				var email = self.find("#email");
 				var msg = self.find("#mensagem");
 
-				$.ajax({
-					url: 'http://api-dactyllo.rhcloud.com/contact',
-					type: 'post',
-					data: { nome: nome.val(), email: email.val(), msg: msg.val() },
-					success: function() {
-						alertify.alert("Mensagem enviada com sucesso!");
-					},
-					error: function() {
-						alertify.alert("Falhou ao enviar mensagem, tente novamente ou por email...");
-					},
-					complete: function() {
-						nome.val("");
-						email.val("");
-						msg.val("");
-					}
-				});
+				if(nome.val() != '' && email.val() != '' && msg.val() != '') {
+					$.ajax({
+						url: 'http://api-dactyllo.rhcloud.com/contact',
+						type: 'post',
+						data: { nome: nome.val(), email: email.val(), msg: msg.val() },
+						success: function() {
+							alertify.alert("Mensagem enviada com sucesso!");
+						},
+						error: function() {
+							alertify.alert("Falhou ao enviar mensagem, tente novamente ou por email...");
+						},
+						complete: function() {
+							nome.val("");
+							email.val("");
+							msg.val("");
+						}
+					});
+				} else {
+					alertify.alert("Tem de preencher todos os campos do formulário!");
+				}
 			});
 
 			$(".scripto").remove();
