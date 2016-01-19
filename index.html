@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="pt">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
-	<title>João Gaião - Um Web Developer português</title>
+	<title>João Gaião - Um Web Developer do presente</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="robots" content="index, follow">
 	<meta name="description" content="Site pessoal de João Gaião, um programador que acredita que a Web é mais do que um simples site.">
 	<meta name="keywords" content="web, web portugal, web algarve, João Gaião, web developer, web developer portugal, web developer algarve, html, html portugal, html algarve, javascript, javascript portugal, javascript algarve, mobile, mobile algarve, mobile portugal, html5, html5 algarve, html5 portugal">
-	<meta property="og:title" content="João Gaião - Um Web Developer português" />
+	<meta property="og:title" content="João Gaião - Um Web Developer do presente" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="http://joaogaiao.pt" />
 	<meta property="og:image" content="http://joaogaiao.pt/images/avatar.jpg" />
@@ -23,14 +23,14 @@
 	</script>
 </head>
 <body>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'">
+	<!--link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'">
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600" media="none" onload="if(media!='all')media='all'">
-	<link rel="stylesheet" type="text/css" href="assets/css/main.min.css" media="none" onload="if(media!='all')media='all'">
-	<noscript>
+	<link rel="stylesheet" type="text/css" href="assets/css/main.min.css" media="none" onload="if(media!='all')media='all'"-->
+	<!--noscript>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600">
 		<link rel="stylesheet" type="text/css" href="assets/css/main.min.css">
-	</noscript>
+	</noscript-->
 	<div id="header">
 		<div class="top">
 			<div id="logo" itemscope itemtype="http://schema.org/Person">
@@ -48,7 +48,7 @@
 					<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Introdução</span></a></li>
 					<li><a href="#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Portfólio</span></a></li>
 					<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Sobre Mim</span></a></li>
-					<!--li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contacto</span></a></li-->
+					<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contacto</span></a></li>
 				</ul>
 			</nav>
 		</div>
@@ -105,36 +105,94 @@
 			</div>
 		</section>
 		<!-- Contact -->
-		<!--section id="contact" class="four">
-		<div class="container">
-		<header>
-		<h2>Contacto</h2>
-	</header>
-	<p>Se quiser deixar uma mensagem e for demasiado preguiçoso para enviar um email, utilize o formulário a baixo.</p>
-	<form method="post" action="#">
-	<div class="row">
-	<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Nome" /></div>
-	<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
-	<div class="12u$">
-	<textarea name="message" placeholder="Mensagem"></textarea>
-</div>
-<div class="12u$">
-<input type="submit" value="Enviar Mensagem" />
-</div>
-</div>
-</form>
-</div>
-</section-->
-</div>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/all.js"></script>
-<script async="async">
-(function(){
-	var ga = document.createElement('script');
-	ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
+		<section id="contact" class="four">
+			<div class="container">
+				<header>
+					<h2>Contacto</h2>
+				</header>
+				<p>Se quiser deixar uma mensagem e for demasiado preguiçoso para enviar um email, utilize o formulário a baixo.</p>
+				<form id="contactos" method="post" action="/mail">
+					<div class="row">
+						<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Nome" /></div>
+						<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+						<div class="12u$">
+							<textarea name="message" placeholder="Mensagem"></textarea>
+						</div>
+						<div class="12u$">
+							<input type="submit" value="Enviar Mensagem" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" async="async">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600" async="async">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.min.css" async="async">
+	<link rel="stylesheet" type="text/css" href="assets/css/alertify.core.css" async="async">
+	<link rel="stylesheet" type="text/css" href="assets/css/alertify.default.css" async="async">
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<!--script src="assets/js/all.js"></script-->
+	<script src="assets/js/LAB.min.js"></script>
+	<script class="scripto" async="async">
+	(function(){
+		function loadCss(url) {
+			var link = document.createElement("link");
+			link.type = "text/css";
+			link.rel = "stylesheet";
+			link.href = url;
+			document.getElementsByTagName("head")[0].appendChild(link);
+		}
+		//loadCss("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+		//loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+		//loadCss("assets/css/main.css");
+
+		$LAB
+		.script("assets/js/jquery.min.js")
+		.script("assets/js/alertify.min.js").wait()
+		.script("assets/js/jquery.scrolly.min.js")
+		.script("assets/js/jquery.scrollzer.min.js")
+		.script("assets/js/skel.min.js").wait()
+		.script("assets/js/util.js").wait()
+		.script("assets/js/main.js")
+		.wait(function(){
+
+			$("#contactos").on("submit", function(e) {
+				e.preventDefault();
+				var self = $(this);
+				var nome = self.find("input[name='name']");
+				var email = self.find("input[name='email']");
+				var msg = self.find("input[name='message']");
+
+				$.ajax({
+					url: 'http://api-dactyllo.rhcloud.com/contact',
+					type: 'post',
+					data: { nome: nome.val(), email: email.val(), msg: msg.val() },
+					success: function() {
+						self.
+						alertify.alert("Mensagem enviada com sucesso!");
+					},
+					error: function() {
+						alertify.alert("Falhou ao enviar mensagem, tente novamente ou por email...");
+					},
+					complete: function() {
+						nome.val("");
+						email.val("");
+						msg.val("");
+					}
+				});
+			});
+
+			$(".scripto").remove();
+		});
+
+
+
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	</script>
 </body>
 </html>
