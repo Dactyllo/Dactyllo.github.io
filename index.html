@@ -167,7 +167,7 @@
 				$.ajax({
 					url: 'http://api-dactyllo.rhcloud.com/contact',
 					type: 'post',
-					data: { nome: nome.val(), email: email.val(), msg: msg.text() },
+					data: { nome: nome.val(), email: email.val(), msg: msg.val() },
 					success: function() {
 						self.
 						alertify.alert("Mensagem enviada com sucesso!");
@@ -178,7 +178,7 @@
 					complete: function() {
 						nome.val("");
 						email.val("");
-						msg.text("");
+						msg.val("");
 					}
 				});
 			});
