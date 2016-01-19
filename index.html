@@ -113,10 +113,10 @@
 				<p>Se quiser deixar uma mensagem e for demasiado preguiçoso para enviar um email, utilize o formulário a baixo.</p>
 				<form id="contactos" method="post" action="/mail">
 					<div class="row">
-						<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Nome" /></div>
-						<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+						<div class="6u 12u$(mobile)"><input id="nome" type="text" name="name" placeholder="Nome" /></div>
+						<div class="6u$ 12u$(mobile)"><input id="email" type="text" name="email" placeholder="Email" /></div>
 						<div class="12u$">
-							<textarea name="message" placeholder="Mensagem"></textarea>
+							<textarea id="mensagem" name="message" placeholder="Mensagem"></textarea>
 						</div>
 						<div class="12u$">
 							<input type="submit" value="Enviar Mensagem" />
@@ -160,9 +160,9 @@
 			$("#contactos").on("submit", function(e) {
 				e.preventDefault();
 				var self = $(this);
-				var nome = self.find("input[name='name']");
-				var email = self.find("input[name='email']");
-				var msg = self.find("textarea[name='message']");
+				var nome = self.find("#nome");
+				var email = self.find("#email");
+				var msg = self.find("#mensagem");
 
 				$.ajax({
 					url: 'http://api-dactyllo.rhcloud.com/contact',
