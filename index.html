@@ -179,18 +179,19 @@
 								url: 'http://api-dactyllo.rhcloud.com/contact',
 								type: 'post',
 								data: { nome: nome.val(), email: email.val(), msg: msg.val() },
-								statusCode: {
-									200: function() {
-								    	alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
-									},
-									500: function() {
-								    	alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
-									},
-									503: function(msg) {
-										console.log(msg.responseJSON.error);
+								success: function(data){
+							        alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
+							    },
+							    error: function(jqXHR, textStatus, errorThrown){
+									console.log(jqXHR);
+									console.log(textStatus);
+									console.log(errorThrown);
+							        if (jqXHR.status == 503) {
 								    	alertify.alert("Falhou ao enviar mensagem, por favor tente novamente mais tarde ou por email.");
+							        } else {
+										alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
 									}
-								},
+							    },
 								complete: function() {
 									nome.val("");
 									email.val("");
