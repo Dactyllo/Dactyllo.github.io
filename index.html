@@ -180,14 +180,14 @@
 								type: 'post',
 								data: { nome: nome.val(), email: email.val(), msg: msg.val() },
 								statusCode: {
-								    200: function() {
+									200: function() {
 								    	alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
 									},
 									500: function() {
 								    	alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
 									},
 									503: function(msg) {
-										console.log(msg);
+										console.log(msg.error);
 								    	alertify.alert("Falhou ao enviar mensagem, por favor tente novamente mais tarde ou por email.");
 									}
 								},
