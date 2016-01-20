@@ -143,6 +143,10 @@
 			link.href = url;
 			document.getElementsByTagName("head")[0].appendChild(link);
 		}
+		function validateEmail(email) {
+		    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		    return re.test(email);
+		}
 		//loadCss("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 		//loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 		//loadCss("assets/css/main.css");
@@ -165,31 +169,44 @@
 				var msg = self.find("#mensagem");
 
 				if(nome.val() != '' && email.val() != '' && msg.val() != '') {
-					$.ajax({
-						url: 'http://api-dactyllo.rhcloud.com/contact',
-						type: 'post',
-						data: { nome: nome.val(), email: email.val(), msg: msg.val() },
-						success: function() {
-							alertify.alert("Mensagem enviada com sucesso!");
-						},
-						error: function() {
-							alertify.alert("Falhou ao enviar mensagem, tente novamente ou por email...");
-						},
-						complete: function() {
-							nome.val("");
-							email.val("");
-							msg.val("");
+					if(validateEmail(email.val())) {
+						if (nome.val().length < 4) {
+							alertify.alert("O seu nome é assim tão pequeno? Incrível! Mas infelizmente eu não acredito...");
+						} else if(msg.val().length < 10) {
+							alertify.alert("Só tem mesmo isso para escrever? Tente fazer um bocadinho melhor...");
+						} else {
+							$.ajax({
+								url: 'http://api-dactyllo.rhcloud.com/contact',
+								type: 'post',
+								data: { nome: nome.val(), email: email.val(), msg: msg.val() },
+								statusCode: {
+								    200: function() {
+								    	alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
+									},
+									500: function() {
+								    	alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
+									},
+									503: function(msg) {
+										console.log(msg);
+								    	alertify.alert("Falhou ao enviar mensagem, por favor tente novamente mais tarde ou por email.");
+									}
+								},
+								complete: function() {
+									nome.val("");
+									email.val("");
+									msg.val("");
+								}
+							});
 						}
-					});
+					} else {
+						alertify.alert("Tem de fornecer um email válido! Ou achava que eu não iria notar?");
+					}
 				} else {
-					alertify.alert("Tem de preencher todos os campos do formulário!");
+					alertify.alert("Tem de preencher todos os campos do formulário, não são assim tantos...");
 				}
 			});
-
 			$(".scripto").remove();
 		});
-
-
 
 		var ga = document.createElement('script');
 		ga.type = 'text/javascript'; ga.async = true;
