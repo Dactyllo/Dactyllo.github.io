@@ -183,9 +183,7 @@
 							        alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
 							    },
 							    error: function(jqXHR, textStatus, errorThrown){
-									console.log(jqXHR);
-									console.log(textStatus);
-									console.log(errorThrown);
+									console.log(jqXHR.responseJSON.error);
 							        if (jqXHR.status == 503) {
 								    	alertify.alert("Falhou ao enviar mensagem, por favor tente novamente mais tarde ou por email.");
 							        } else {
