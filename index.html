@@ -187,7 +187,7 @@
 								    	alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
 									},
 									503: function(msg) {
-										console.log(msg.error);
+										console.log(msg.responseJSON.error);
 								    	alertify.alert("Falhou ao enviar mensagem, por favor tente novamente mais tarde ou por email.");
 									}
 								},
