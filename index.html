@@ -27,7 +27,7 @@
 	<div id="header">
 		<div class="top">
 			<div id="logo" itemscope itemtype="http://schema.org/Person">
-				<span class="image avatar48"><img src="images/avatarSmall.jpg" alt="João Gaião" /></span>
+				<span class="image avatar48"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/avatarSmall.jpg" alt="João Gaião" /></span>
 				<h1 id="title" itemprop="name">João Gaião</h1>
 				<p itemprop="jobTitle">Web Developer</p>
 				<meta itemprop="image" content="http://joaogaiao.pt/images/avatar.jpg">
@@ -77,7 +77,7 @@
 				<div class="row">
 					<div class="4u 12u$(mobile)">
 						<article class="item">
-							<a href="#" class="image fit"><img src="images/cartaomatriz.png" alt="Cartão Matriz de João Gaião" title="Cartão Matriz" /></a>
+							<a href="#" class="image fit"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/cartaomatriz.png" alt="Cartão Matriz de João Gaião" title="Cartão Matriz" /></a>
 							<header>
 								<h3>Cartão Matriz</h3>
 								<p>Uma aplicação para armazenar e consultar credenciais de acesso a bancos online.</p>
@@ -92,7 +92,7 @@
 				<header>
 					<h2>Sobre mim</h2>
 				</header>
-				<a class="image featured"><img src="images/pico.jpg" alt="Imagem da ilha do pico, dos açores, no site de João Gaião" /></a>
+				<a class="image featured"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/pico.jpg" alt="Imagem da ilha do pico, dos açores, no site de João Gaião" /></a>
 				<p>Todos nós temos uma fonte de inspiração, uma 'musa', algo que nos move inconscientemente. A minha é a terra onde nasci, os Açores, em especial as ilhas Faial e Pico. Acredito que tudo o que faço ou penso é influênciado em parte por essa força da natureza. Influência essa que é de uma extrema genuinidade e simplicidade, do mais puro e mágico que a natureza tem para ofereçer.</p>
 				<p>Desde pequeno que demonstrei um gosto genuíno pela informática. Na fase da adolescência, em que questionava a minha vocação, considerava a programação um 'monstro' que estaria fora do meu alcançe. Poucos anos mais tarde, num curso de informática, aprendi as bases da programação. Desde então a paixão pela programação tem crescido exponêncialmente. A dada altura conheci o Javascript e a Web tornou-se o meu foco principal, foi amor à primeira indentação.</p>
 			</div>
@@ -122,14 +122,14 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<!--script src="assets/js/all.js"></script-->
 	<script class="scripto" async="async">
-	(function(){
 		function validateEmail(email) {
 		    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		    return re.test(email);
 		}
 		head.load([{ jquery: "assets/js/jquery.min.js" }, { alertify: "assets/js/alertify.min.js" }], function() {
 			head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "assets/js/skel.min.js" }], function() {
-				head.load(["assets/js/util.js", "assets/js/main.js"], function() {
+				head.load(["assets/js/util.js", "assets/js/main.js", "https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.min.js"], function() {
+					$("img").unveil();
 					$("#contactos").on("submit", function(e) {
 						e.preventDefault();
 						var self = $(this);
@@ -173,15 +173,14 @@
 						}
 					});
 					$(".scripto").remove();
-
-					var ga = document.createElement('script');
-					ga.type = 'text/javascript'; ga.async = true;
-					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 				});
 			});
 		});
-	})();
+
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	</script>
 </body>
 </html>
