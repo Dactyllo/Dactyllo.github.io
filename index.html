@@ -14,23 +14,16 @@
 	<meta property="og:description" content="Site pessoal de João Gaião, um programador que acredita que a Web é mais do que um simples site." />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
 	<script type="text/javascript">
+	head.load(["https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", "assets/css/googleFonts.css", "assets/css/main.min.css", "assets/css/alertify.core.css", "assets/css/alertify.default.css"]);
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-31457866-2']);
 	_gaq.push(['_trackPageview']);
 	</script>
 </head>
 <body>
-	<!--link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600" media="none" onload="if(media!='all')media='all'">
-	<link rel="stylesheet" type="text/css" href="assets/css/main.min.css" media="none" onload="if(media!='all')media='all'"-->
-	<!--noscript>
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600">
-		<link rel="stylesheet" type="text/css" href="assets/css/main.min.css">
-	</noscript-->
 	<div id="header">
 		<div class="top">
 			<div id="logo" itemscope itemtype="http://schema.org/Person">
@@ -126,90 +119,68 @@
 			</div>
 		</section>
 	</div>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" async="async">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600" async="async">
-	<link rel="stylesheet" type="text/css" href="assets/css/main.min.css" async="async">
-	<link rel="stylesheet" type="text/css" href="assets/css/alertify.core.css" async="async">
-	<link rel="stylesheet" type="text/css" href="assets/css/alertify.default.css" async="async">
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<!--script src="assets/js/all.js"></script-->
-	<script src="assets/js/LAB.min.js"></script>
 	<script class="scripto" async="async">
 	(function(){
-		function loadCss(url) {
-			var link = document.createElement("link");
-			link.type = "text/css";
-			link.rel = "stylesheet";
-			link.href = url;
-			document.getElementsByTagName("head")[0].appendChild(link);
-		}
 		function validateEmail(email) {
 		    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		    return re.test(email);
 		}
-		//loadCss("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-		//loadCss("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
-		//loadCss("assets/css/main.css");
+		head.load([{ jquery: "assets/js/jquery.min.js" }, { alertify: "assets/js/alertify.min.js" }], function() {
+			head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "assets/js/skel.min.js" }], function() {
+				head.load(["assets/js/util.js", "assets/js/main.js"], function() {
+					$("#contactos").on("submit", function(e) {
+						e.preventDefault();
+						var self = $(this);
+						var nome = self.find("#nome");
+						var email = self.find("#email");
+						var msg = self.find("#mensagem");
 
-		$LAB
-		.script("assets/js/jquery.min.js")
-		.script("assets/js/alertify.min.js").wait()
-		.script("assets/js/jquery.scrolly.min.js")
-		.script("assets/js/jquery.scrollzer.min.js")
-		.script("assets/js/skel.min.js").wait()
-		.script("assets/js/util.js").wait()
-		.script("assets/js/main.js")
-		.wait(function(){
-
-			$("#contactos").on("submit", function(e) {
-				e.preventDefault();
-				var self = $(this);
-				var nome = self.find("#nome");
-				var email = self.find("#email");
-				var msg = self.find("#mensagem");
-
-				if(nome.val() != '' && email.val() != '' && msg.val() != '') {
-					if(validateEmail(email.val())) {
-						if (nome.val().length < 4) {
-							alertify.alert("O seu nome é assim tão pequeno? Incrível! Mas infelizmente eu não acredito...");
-						} else if(msg.val().length < 10) {
-							alertify.alert("Só tem mesmo isso para escrever? Tente fazer um bocadinho melhor...");
-						} else {
-							$.ajax({
-								url: 'http://api-dactyllo.rhcloud.com/contact',
-								type: 'post',
-								data: { nome: nome.val(), email: email.val(), msg: msg.val() },
-								success: function(data){
-							        alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
-							    },
-							    error: function(jqXHR, textStatus, errorThrown){
-							        if (jqXHR.status == 503) {
-								    	alertify.alert(String(jqXHR.responseJSON.error));
-							        } else {
-										alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
-									}
-							    },
-								complete: function() {
-									nome.val("");
-									email.val("");
-									msg.val("");
+						if(nome.val() != '' && email.val() != '' && msg.val() != '') {
+							if(validateEmail(email.val())) {
+								if (nome.val().length < 4) {
+									alertify.alert("O seu nome é assim tão pequeno? Incrível! Mas infelizmente eu não acredito...");
+								} else if(msg.val().length < 10) {
+									alertify.alert("Só tem mesmo isso para escrever? Tente fazer um bocadinho melhor...");
+								} else {
+									$.ajax({
+										url: 'http://api-dactyllo.rhcloud.com/contact',
+										type: 'post',
+										data: { nome: nome.val(), email: email.val(), msg: msg.val() },
+										success: function(data){
+									        alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
+									    },
+									    error: function(jqXHR, textStatus, errorThrown){
+									        if (jqXHR.status == 503) {
+										    	alertify.alert(String(jqXHR.responseJSON.error));
+									        } else {
+												alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
+											}
+									    },
+										complete: function() {
+											nome.val("");
+											email.val("");
+											msg.val("");
+										}
+									});
 								}
-							});
+							} else {
+								alertify.alert("Tem de fornecer um email válido! Ou achava que eu não iria notar?");
+							}
+						} else {
+							alertify.alert("Tem de preencher todos os campos do formulário, não são assim tantos...");
 						}
-					} else {
-						alertify.alert("Tem de fornecer um email válido! Ou achava que eu não iria notar?");
-					}
-				} else {
-					alertify.alert("Tem de preencher todos os campos do formulário, não são assim tantos...");
-				}
-			});
-			$(".scripto").remove();
-		});
+					});
+					$(".scripto").remove();
 
-		var ga = document.createElement('script');
-		ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+					var ga = document.createElement('script');
+					ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				});
+			});
+		});
 	})();
 	</script>
 </body>
