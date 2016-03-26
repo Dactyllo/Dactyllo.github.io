@@ -2,17 +2,17 @@
 <html lang="pt">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 	<title>João Gaião - Um Web Developer do presente</title>
-	<meta charset="utf-8" />
-	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/png" href="favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow">
 	<meta name="description" content="Site pessoal de João Gaião, um programador que acredita que a Web é mais do que um simples site.">
 	<meta name="keywords" content="web, web portugal, web algarve, João Gaião, web developer, web developer portugal, web developer algarve, html, html portugal, html algarve, javascript, javascript portugal, javascript algarve, mobile, mobile algarve, mobile portugal, html5, html5 algarve, html5 portugal, criaçao de websites, sites, páginas web, aplicações mobile, aplicações">
-	<meta property="og:title" content="João Gaião - Um Web Developer do presente" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="http://joaogaiao.pt" />
-	<meta property="og:image" content="http://joaogaiao.pt/images/avatar.jpg" />
-	<meta property="og:description" content="Site pessoal de João Gaião, um programador que acredita que a Web é mais do que um simples site." />
+	<meta property="og:title" content="João Gaião - Um Web Developer do presente">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://www.joaogaiao.pt">
+	<meta property="og:image" content="http://www.joaogaiao.pt/images/avatar.jpg">
+	<meta property="og:description" content="Site pessoal de João Gaião, um programador que acredita que a Web é mais do que um simples site.">
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
@@ -30,6 +30,7 @@
 				$("#contactos").on("submit", function(e) {
 					e.preventDefault();
 					var self = $(this);
+					self.find('input[type="submit"]').val("A enviar...");
 					var nome = self.find("#nome");
 					var email = self.find("#email");
 					var msg = self.find("#mensagem");
@@ -59,6 +60,7 @@
 										nome.val("");
 										email.val("");
 										msg.val("");
+										self.find('input[type="submit"]').val("Enviar Mensagem");
 									}
 								});
 							}
