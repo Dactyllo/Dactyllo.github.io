@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
 <html lang="pt">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
-	<title>João Gaião - Um Web Developer do presente</title>
+	<title>João Gaião - Um Programador Web do presente</title>
 	<meta charset="utf-8">
 	<link rel="shortcut icon" type="image/png" href="favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow">
 	<meta name="description" content="Site pessoal de João Gaião, um programador que acredita que a Web é mais do que um simples site.">
-	<meta name="keywords" content="web, web portugal, web algarve, João Gaião, web developer, web developer portugal, web developer algarve, html, html portugal, html algarve, javascript, javascript portugal, javascript algarve, mobile, mobile algarve, mobile portugal, html5, html5 algarve, html5 portugal, criaçao de websites, sites, páginas web, aplicações mobile, aplicações">
-	<meta property="og:title" content="João Gaião - Um Web Developer do presente">
+	<meta name="keywords" content="programador, web portugal, web algarve, web developer, web developer portugal, web developer algarve, html portugal, html algarve, javascript portugal, javascript algarve, mobile algarve, mobile portugal, html5 algarve, html5 portugal, criaçao de websites, sites, páginas web, aplicações móveis, aplicações">
+	<meta property="og:title" content="João Gaião - Um Programador Web do presente">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="http://dactyllo.github.io/">
 	<meta property="og:image" content="http://dactyllo.github.io/images/avatar.jpg">
@@ -24,56 +24,7 @@
 		return re.test(email);
 	}
 	head.load(["assets/css/font-awesome.min.css", "assets/css/googleFonts.css", "assets/css/main.min.css", "assets/css/alertify.core.css", "assets/css/alertify.default.css", { jquery: "assets/js/jquery.min.js" }, { alertify: "assets/js/alertify.min.js" }], function() {
-		head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "assets/js/skel.min.js" }, { unveil:  "assets/js/jquery.unveil.min.js" }], function() {
-			head.load(["assets/js/util.js", "assets/js/main.js"], function() {
-				$("img").unveil(200);
-				$("#contactos").on("submit", function(e) {
-					e.preventDefault();
-					var self = $(this);
-					self.find('input[type="submit"]').val("A enviar...");
-					var nome = self.find("#nome");
-					var email = self.find("#email");
-					var msg = self.find("#mensagem");
 
-					if(nome.val() != '' && email.val() != '' && msg.val() != '') {
-						if(validateEmail(email.val())) {
-							if (nome.val().length < 4) {
-								alertify.alert("O seu nome é assim tão pequeno? Incrível! Mas infelizmente eu não acredito...");
-							} else if(msg.val().length < 10) {
-								alertify.alert("Só tem mesmo isso para escrever? Tente fazer um bocadinho melhor...");
-							} else {
-								$.ajax({
-									url: 'http://api-dactyllo.rhcloud.com/contact',
-									type: 'post',
-									data: { nome: nome.val(), email: email.val(), msg: msg.val() },
-									success: function(data){
-										alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
-									},
-									error: function(jqXHR, textStatus, errorThrown){
-										if (jqXHR.status == 503) {
-											alertify.alert(String(jqXHR.responseJSON.error));
-										} else {
-											alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
-										}
-									},
-									complete: function() {
-										nome.val("");
-										email.val("");
-										msg.val("");
-										self.find('input[type="submit"]').val("Enviar Mensagem");
-									}
-								});
-							}
-						} else {
-							alertify.alert("Tem de fornecer um email válido! Ou achava que eu não iria notar?");
-						}
-					} else {
-						alertify.alert("Tem de preencher todos os campos do formulário, não são assim tantos...");
-					}
-				});
-				$(".scripto").remove();
-			});
-		});
 	});
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-31457866-2']);
@@ -86,7 +37,7 @@
 			<div id="logo" itemscope itemtype="http://schema.org/Person">
 				<span class="image avatar48"><img src="images/avatarSmall.jpg" alt="João Gaião" /></span>
 				<h1 id="title" itemprop="name">João Gaião</h1>
-				<p itemprop="jobTitle">Web Developer</p>
+				<p itemprop="jobTitle">Programador Web</p>
 				<meta itemprop="image" content="http://dactyllo.github.io/images/avatar.jpg">
 				<meta itemprop="email" content="dactyllo@gmail.com">
 				<meta itemprop="nationality" content="Portugal">
@@ -130,14 +81,23 @@
 				<header>
 					<h2>Portfólio</h2>
 				</header>
-				<p>Aqui estão apenas os projetos dignos de serem mostrados publicamente.</p>
+				<p>Aqui estão apenas os projetos "dignos" de serem mostrados publicamente.</p>
 				<div class="row">
 					<div class="4u 12u$(mobile)">
 						<article class="item">
-							<a href="http://cartaomatriz.joaogaiao.pt/" class="image fit"><img src="images/cartaomatriz.png" alt="Cartão Matriz de João Gaião" title="Cartão Matriz" /></a>
+							<a target="_blank" href="http://dactyllo.github.io/CartaoMatriz/" class="image fit"><img src="images/cartaomatriz.png" alt="Cartão Matriz de João Gaião" title="Cartão Matriz" /></a>
 							<header>
 								<h3>Cartão Matriz</h3>
 								<p>Uma aplicação para armazenar e consultar credenciais de acesso a bancos online.</p>
+							</header>
+						</article>
+					</div>
+					<div class="4u 12u$(mobile)">
+						<article class="item">
+							<a class="image fit"><img src="images/img_calc.png" alt="Calculadora IMC de João Gaião" title="Calculadora IMC" /></a>
+							<header>
+								<h3>Calculadora de IMC</h3>
+								<p>Uma aplicação para calcular o Índice de Massa Corporal e o Peso Ideal.</p>
 							</header>
 						</article>
 					</div>
@@ -149,8 +109,8 @@
 				<header>
 					<h2>Sobre mim</h2>
 				</header>
-				<a class="image featured"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/pico.jpg" alt="Imagem da ilha do pico, dos açores, no site de João Gaião" /></a>
-				<p>Todos nós temos uma fonte de inspiração, uma 'musa', algo que nos move inconscientemente. A minha é a terra onde nasci, os Açores, em especial as ilhas Faial e Pico. Acredito que tudo o que faço ou penso é influênciado em parte por essa força da natureza. Influência essa que é de uma extrema genuinidade e simplicidade, do mais puro e mágico que a natureza tem para ofereçer.</p>
+				<a class="image featured"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="images/pico.jpg" alt="Ilha do Pico vista do Faial - João Gaião" /></a>
+				<p>Todos nós temos uma fonte de inspiração, uma 'musa', algo que nos move inconscientemente. A minha é a terra onde nasci, os Açores, em especial as ilhas Faial e Pico. Acredito que tudo o que faço ou penso é influênciado em parte por essa força da natureza.</p>
 				<p>Desde pequeno que demonstrei um gosto genuíno pela informática. Na fase da adolescência, em que questionava a minha vocação, considerava a programação um 'monstro' que estaria fora do meu alcançe. Poucos anos mais tarde, num curso de informática, aprendi as bases da programação. Desde então a paixão pela programação tem crescido exponêncialmente. A dada altura conheci o Javascript e a Web tornou-se o meu foco principal, foi amor à primeira indentação.</p>
 			</div>
 		</section>
@@ -161,12 +121,11 @@
 					<h2>Contacto</h2>
 				</header>
 				<p>Se quiser deixar uma mensagem, está à vontade.</p>
-				<form id="contactos" method="post" action="/mail">
+				<form id="contactos" method="GET" action="mailto:dactyllo@gmail.com" target="_blank">
 					<div class="row">
-						<div class="6u 12u$(mobile)"><input id="nome" type="text" name="name" placeholder="Nome" /></div>
-						<div class="6u$ 12u$(mobile)"><input id="email" type="text" name="email" placeholder="Email" /></div>
+						<div class="12u$"><input id="assunto" type="text" name="subject" placeholder="Assunto" /></div>
 						<div class="12u$">
-							<textarea id="mensagem" name="message" placeholder="Mensagem"></textarea>
+							<textarea id="mensagem" name="body" placeholder="Mensagem"></textarea>
 						</div>
 						<div class="12u$">
 							<input type="submit" value="Enviar Mensagem" />
@@ -176,6 +135,58 @@
 			</div>
 		</section>
 	</div>
+	<script type="text/javascript">
+	head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "assets/js/skel.min.js" }, { unveil:  "assets/js/jquery.unveil.min.js" }], function() {
+		head.load(["assets/js/util.js", "assets/js/main.js"], function() {
+			$("img").unveil(200);
+			/*$("#contactos").on("submit", function(e) {
+				e.preventDefault();
+				var self = $(this);
+				self.find('input[type="submit"]').val("A enviar...");
+				var nome = self.find("#nome");
+				var email = self.find("#email");
+				var msg = self.find("#mensagem");
+
+				if(nome.val() != '' && email.val() != '' && msg.val() != '') {
+					if(validateEmail(email.val())) {
+						if (nome.val().length < 4) {
+							alertify.alert("O seu nome é assim tão pequeno? Incrível! Mas infelizmente eu não acredito...");
+						} else if(msg.val().length < 10) {
+							alertify.alert("Só tem mesmo isso para escrever? Tente fazer um bocadinho melhor...");
+						} else {
+							$.ajax({
+								url: 'http://api-dactyllo.rhcloud.com/contact',
+								type: 'post',
+								data: { nome: nome.val(), email: email.val(), msg: msg.val() },
+								success: function(data){
+									alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
+								},
+								error: function(jqXHR, textStatus, errorThrown){
+									if (jqXHR.status == 503) {
+										alertify.alert(String(jqXHR.responseJSON.error));
+									} else {
+										alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
+									}
+								},
+								complete: function() {
+									nome.val("");
+									email.val("");
+									msg.val("");
+									self.find('input[type="submit"]').val("Enviar Mensagem");
+								}
+							});
+						}
+					} else {
+						alertify.alert("Tem de fornecer um email válido! Ou achava que eu não iria notar?");
+					}
+				} else {
+					alertify.alert("Tem de preencher todos os campos do formulário, não são assim tantos...");
+				}
+			});*/
+			$(".scripto").remove();
+		});
+	});
+	</script>
 	<script class="scripto" async="async">
 		var ga = document.createElement('script');
 		ga.type = 'text/javascript'; ga.async = true;

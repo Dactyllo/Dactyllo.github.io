@@ -2167,6 +2167,10 @@
 				background-color: #e8edec;
 			}
 
+			#portfolio article.item h3 {
+			    font-weight: bold;
+			}
+
 /* Wide */
 
 	@media screen and (min-width: 961px) and (max-width: 1880px) {
