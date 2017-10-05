@@ -18,14 +18,8 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	<script src="assets/js/head.load.min.js"></script>
-	<script type="text/javascript">
-	function validateEmail(email) {
-		var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return re.test(email);
-	}
-	head.load(["assets/css/font-awesome.min.css", "assets/css/googleFonts.css", "assets/css/main.min.css", "assets/css/alertify.core.css", "assets/css/alertify.default.css", { jquery: "assets/js/jquery.min.js" }, { alertify: "assets/js/alertify.min.js" }], function() {
-
-	});
+	<script class="scripto" type="text/javascript">
+	head.load(["assets/css/font-awesome.min.css", "assets/css/googleFonts.css", "assets/css/main.min.css", "assets/css/alertify.core.css", "assets/css/alertify.default.css", "assets/css/magnific-popup.min.css"]);
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-31457866-2']);
 	_gaq.push(['_trackPageview']);
@@ -85,7 +79,7 @@
 				<div class="row">
 					<div class="4u 12u$(mobile)">
 						<article class="item">
-							<a target="_blank" href="http://dactyllo.github.io/CartaoMatriz/" class="image fit"><img src="images/cartaomatriz.png" alt="Cartão Matriz de João Gaião" title="Cartão Matriz" /></a>
+							<a href="images/cartaomatriz-screenshot.png" class="image fit image-link"><img src="images/cartaomatriz.png" alt="Cartão Matriz de João Gaião" title="Cartão Matriz" /></a>
 							<header>
 								<h3>Cartão Matriz</h3>
 								<p>Uma aplicação para armazenar e consultar credenciais de acesso a bancos online.</p>
@@ -94,7 +88,7 @@
 					</div>
 					<div class="4u 12u$(mobile)">
 						<article class="item">
-							<a class="image fit"><img src="images/img_calc.png" alt="Calculadora IMC de João Gaião" title="Calculadora IMC" /></a>
+							<a href="images/imc-calc-screenshot.png" class="image fit image-link"><img src="images/img_calc.png" alt="Calculadora IMC de João Gaião" title="Calculadora de IMC" /></a>
 							<header>
 								<h3>Calculadora de IMC</h3>
 								<p>Uma aplicação para calcular o Índice de Massa Corporal e o Peso Ideal.</p>
@@ -121,11 +115,12 @@
 					<h2>Contacto</h2>
 				</header>
 				<p>Se quiser deixar uma mensagem, está à vontade.</p>
-				<form id="contactos" method="GET" action="mailto:dactyllo@gmail.com" target="_blank">
+				<form id="contactos" method="post" action="">
 					<div class="row">
-						<div class="12u$"><input id="assunto" type="text" name="subject" placeholder="Assunto" /></div>
+						<div class="6u 12u$(mobile)"><input id="nome" type="text" name="nome" placeholder="Nome" /></div>
+						<div class="6u 12u$(mobile)"><input id="email" type="email" name="email" placeholder="Email" /></div>
 						<div class="12u$">
-							<textarea id="mensagem" name="body" placeholder="Mensagem"></textarea>
+							<textarea id="mensagem" name="mensagem" placeholder="Mensagem"></textarea>
 						</div>
 						<div class="12u$">
 							<input type="submit" value="Enviar Mensagem" />
@@ -135,55 +130,58 @@
 			</div>
 		</section>
 	</div>
-	<script type="text/javascript">
-	head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "assets/js/skel.min.js" }, { unveil:  "assets/js/jquery.unveil.min.js" }], function() {
-		head.load(["assets/js/util.js", "assets/js/main.js"], function() {
-			$("img").unveil(200);
-			/*$("#contactos").on("submit", function(e) {
-				e.preventDefault();
-				var self = $(this);
-				self.find('input[type="submit"]').val("A enviar...");
-				var nome = self.find("#nome");
-				var email = self.find("#email");
-				var msg = self.find("#mensagem");
+	<script class="scripto" type="text/javascript">
+	head.load([{ jquery: "assets/js/jquery-2.2.4.min.js" }, { alertify: "assets/js/alertify.min.js" }], function() {
+		head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "assets/js/skel.min.js" }, { unveil:  "assets/js/jquery.unveil.min.js" }, "assets/js/jquery.magnific-popup.min.js"], function() {
+			head.load(["assets/js/util.js", "assets/js/main.js"], function() {
+				$("img").unveil(200);
+				$('.image-link').magnificPopup({type:'image'});
+				/*$("#contactos").on("submit", function(e) {
+					e.preventDefault();
+					var self = $(this);
+					self.find('input[type="submit"]').val("A enviar...");
+					var nome = self.find("#nome");
+					var email = self.find("#email");
+					var msg = self.find("#mensagem");
 
-				if(nome.val() != '' && email.val() != '' && msg.val() != '') {
-					if(validateEmail(email.val())) {
-						if (nome.val().length < 4) {
-							alertify.alert("O seu nome é assim tão pequeno? Incrível! Mas infelizmente eu não acredito...");
-						} else if(msg.val().length < 10) {
-							alertify.alert("Só tem mesmo isso para escrever? Tente fazer um bocadinho melhor...");
-						} else {
-							$.ajax({
-								url: 'http://api-dactyllo.rhcloud.com/contact',
-								type: 'post',
-								data: { nome: nome.val(), email: email.val(), msg: msg.val() },
-								success: function(data){
-									alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
-								},
-								error: function(jqXHR, textStatus, errorThrown){
-									if (jqXHR.status == 503) {
-										alertify.alert(String(jqXHR.responseJSON.error));
-									} else {
-										alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
+					if(nome.val() != '' && email.val() != '' && msg.val() != '') {
+						if(validateEmail(email.val())) {
+							if (nome.val().length < 4) {
+								alertify.alert("O seu nome é assim tão pequeno? Incrível! Mas infelizmente eu não acredito...");
+							} else if(msg.val().length < 10) {
+								alertify.alert("Só tem mesmo isso para escrever? Tente fazer um bocadinho melhor...");
+							} else {
+								$.ajax({
+									url: 'http://api-dactyllo.rhcloud.com/contact',
+									type: 'post',
+									data: { nome: nome.val(), email: email.val(), msg: msg.val() },
+									success: function(data){
+										alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
+									},
+									error: function(jqXHR, textStatus, errorThrown){
+										if (jqXHR.status == 503) {
+											alertify.alert(String(jqXHR.responseJSON.error));
+										} else {
+											alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
+										}
+									},
+									complete: function() {
+										nome.val("");
+										email.val("");
+										msg.val("");
+										self.find('input[type="submit"]').val("Enviar Mensagem");
 									}
-								},
-								complete: function() {
-									nome.val("");
-									email.val("");
-									msg.val("");
-									self.find('input[type="submit"]').val("Enviar Mensagem");
-								}
-							});
+								});
+							}
+						} else {
+							alertify.alert("Tem de fornecer um email válido! Ou achava que eu não iria notar?");
 						}
 					} else {
-						alertify.alert("Tem de fornecer um email válido! Ou achava que eu não iria notar?");
+						alertify.alert("Tem de preencher todos os campos do formulário, não são assim tantos...");
 					}
-				} else {
-					alertify.alert("Tem de preencher todos os campos do formulário, não são assim tantos...");
-				}
-			});*/
-			$(".scripto").remove();
+				});*/
+				$(".scripto").remove();
+			});
 		});
 	});
 	</script>
