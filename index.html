@@ -253,7 +253,7 @@
 	head.load([{ jquery: "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" }, { alertify: "https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.11/alertify.min.js" }], function() {
 		//head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "assets/js/skel.min.js" }, { unveil:  "assets/js/jquery.unveil.min.js" }, "assets/js/jquery.magnific-popup.min.js"], function() {
 		head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js" }, { unveil:  "https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.min.js" }, "https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"], function() {
-			head.load(["assets/js/util.js", "assets/js/main.js", { emailjs: "https://cdn.emailjs.com/dist/email.min.js" }], function() {
+			head.load(["assets/js/util.min.js", "assets/js/main.min.js", { emailjs: "https://cdn.emailjs.com/dist/email.min.js" }], function() {
 				var validateEmail = function(email) {
 					var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 					return re.test(email);
