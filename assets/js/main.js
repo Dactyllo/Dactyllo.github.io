@@ -42,31 +42,26 @@
 			});
 
 		// Scrolly links.
-			$('.scrolly').scrolly();
+		$('.scrolly').scrolly();
 
 		// Nav.
 			var $nav_a = $('#nav a');
 
 			// Scrolly-fy links.
-				$nav_a
-					.scrolly()
-					.on('click', function(e) {
+				$nav_a.scrolly().on('click', function(e) {
 
 						var t = $(this),
 							href = t.attr('href');
 
-						if (href[0] != '#')
-							return;
+						if (href[0] != '#') return;
 
 						e.preventDefault();
 
 						// Clear active and lock scrollzer until scrolling has stopped
-							$nav_a
-								.removeClass('active')
-								.addClass('scrollzer-locked');
+						$nav_a.removeClass('active').addClass('scrollzer-locked');
 
 						// Set this link to active
-							t.addClass('active');
+						t.addClass('active');
 
 					});
 
@@ -77,8 +72,7 @@
 
 					var href = $(this).attr('href');
 
-					if (href[0] != '#')
-						return;
+					if (href[0] != '#') return;
 
 					ids.push(href.substring(1));
 
@@ -93,12 +87,10 @@
 					'<div id="headerToggle">' +
 						'<a href="#header" class="toggle"></a>' +
 					'</div>'
-				)
-					.appendTo($body);
+				).appendTo($body);
 
 			// Header.
-				$('#header')
-					.panel({
+				$('#header').panel({
 						delay: 500,
 						hideOnClick: true,
 						hideOnSwipe: true,
@@ -111,8 +103,7 @@
 
 			// Fix: Remove transitions on WP<10 (poor/buggy performance).
 				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
-					$('#headerToggle, #header, #main')
-						.css('transition', 'none');
+					$('#headerToggle, #header, #main').css('transition', 'none');
 
 	});
 
