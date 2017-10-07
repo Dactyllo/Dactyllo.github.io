@@ -19,7 +19,8 @@
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	<script src="assets/js/head.load.min.js"></script>
 	<script class="scripto" type="text/javascript">
-	head.load(["assets/css/font-awesome.min.css", "assets/css/googleFonts.css", "assets/css/main.min.css", "assets/css/alertify.core.css", "assets/css/alertify.default.css", "assets/css/magnific-popup.min.css"]);
+	//head.load(["assets/css/font-awesome.min.css", "assets/css/googleFonts.css", "assets/css/main.min.css", "assets/css/alertify.core.css", "assets/css/alertify.default.css", "assets/css/magnific-popup.min.css"]);
+	head.load(["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "https://fonts.googleapis.com/css?family=Source+Sans+Pro", "assets/css/main.min.css", "https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.11/alertify.core.min.css", "https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.11/alertify.default.min.css", "https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"]);
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-31457866-2']);
 	_gaq.push(['_trackPageview']);
@@ -248,8 +249,10 @@
 		</section>
 	</div>
 	<script class="scripto" type="text/javascript">
-	head.load([{ jquery: "assets/js/jquery-2.2.4.min.js" }, { alertify: "assets/js/alertify.min.js" }], function() {
-		head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "assets/js/skel.min.js" }, { unveil:  "assets/js/jquery.unveil.min.js" }, "assets/js/jquery.magnific-popup.min.js"], function() {
+	//head.load([{ jquery: "assets/js/jquery-2.2.4.min.js" }, { alertify: "assets/js/alertify.min.js" }], function() {
+	head.load([{ jquery: "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" }, { alertify: "https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.11/alertify.min.js" }], function() {
+		//head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "assets/js/skel.min.js" }, { unveil:  "assets/js/jquery.unveil.min.js" }, "assets/js/jquery.magnific-popup.min.js"], function() {
+		head.load([{ scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js" }, { unveil:  "https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.min.js" }, "https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"], function() {
 			head.load(["assets/js/util.js", "assets/js/main.js", { emailjs: "https://cdn.emailjs.com/dist/email.min.js" }], function() {
 				var validateEmail = function(email) {
 					var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
