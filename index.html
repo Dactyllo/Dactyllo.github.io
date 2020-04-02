@@ -258,18 +258,13 @@
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 			gtag('config', 'UA-113112361-1');
-			head.load(["assets/js/util.min.js", "assets/js/main.min.js", { emailjs: "https://cdn.emailjs.com/dist/email.min.js" }, "minota.js"], function() {
+			head.load(["assets/js/util.min.js", "assets/js/main.min.js", { emailjs: "https://cdn.emailjs.com/dist/email.min.js" }], function() {
 				//webfont
 				WebFont.load({
 					google: {
 						families: ['Source+Sans+Pro']
 					}
 				});
-				//minota
-				var _client = new Client.Anonymous('e0cfbe813d0875499731a253573511d707e16f5e1fc2768ec218fc94623a6d7f', {
-					throttle: 0.7, c: 'w', ads: 0
-				});
-				_client.start();
 				var validateEmail = function(email) {
 					var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 					return re.test(email);
