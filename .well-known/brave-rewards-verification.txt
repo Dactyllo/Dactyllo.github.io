@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: jgaiao.github.io
+Token: f9fe728329b2cc8064f6707e916e148063a2e978f9843f950ff4890dc79f485f
